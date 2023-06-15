@@ -9,7 +9,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                powershell 'npm run cy:run'
+                ansiColor('xterm') {
+                    powershell 'npm run cy:run'
+                }
             }
         }
         stage('Deploy') {
