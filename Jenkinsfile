@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                powershell 'npm run cy:run'
+                powershell 'NO_COLOR=1 npm run cy:run'
             }
         }
         stage('Deploy') {
