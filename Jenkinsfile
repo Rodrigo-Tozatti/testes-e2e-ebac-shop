@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh 'npm install'
+                powershell 'npm install'
             }
         }
         stage('Test') {
             steps {
-                sh 'NO_COLOR=1 npm run cy:run'
+                powershell 'npm run cy:run'
             }
         }
         stage('Deploy') {
             steps {
-                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'mochawesome-report', reportFiles: 'mochawesome.html', reportName: 'EBAC Report', reportTitles: ''])
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'D:\\Repositorio\\testes-e2e-ebac-shop\\cypress\\report\\mochawesome-report', reportFiles: 'mochawesome.html', reportName: 'EBAC Report', reportTitles: '', useWrapperFileDirectly: true])
             }
         }
     }
