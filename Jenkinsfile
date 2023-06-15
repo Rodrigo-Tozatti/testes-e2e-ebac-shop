@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                npm run cy:run
+                bat 'npm run cy:run'
             }
         }
         stage('Deploy') {
